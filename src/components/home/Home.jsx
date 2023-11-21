@@ -54,7 +54,7 @@ const HomePage = () => {
           <div className="line"></div>
         </div>
         <div className="signup-link">
-          Vous n'avez pas de compte? <a href="/inscription">S'inscrire</a>
+          Vous <a href="/inscription">S'inscrire</a>
         </div>
       </div>
     </div>
