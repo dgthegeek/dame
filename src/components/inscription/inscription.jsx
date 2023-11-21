@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './inscription.css';
+import database from '../database.json'
 
 const Inscription = () => {
   const [email, setEmail] = useState('');
@@ -7,18 +8,38 @@ const Inscription = () => {
   const [password, setPassword] = useState('');
 
   const handleSignUp = () => {
-    // Add your signup logic here
-    console.log('Signing up with:', { email, username, password });
-  };
+    // Assume you have imported the users data from the JSON file
+    const database = require('../database.json');
+
+    // Check if the username already exists
+    if (database.users.some((user) => user.username === username)) {
+      console.log('Username already exists. Please choose another username.');
+      // Add your logic for handling duplicate username
+      return;
+    }
+
+
+
+    // Add the new user to the JSON file
+    const newUser = {
+      username,
+      password,
+    };
+    database.users.push(newUser);
+
+    // Log the updated users data (for demonstration purposes)
+    console.log('Updated Users Data:', database);
+
+    // Add your logic for saving the updated users data (e.g., write to a file or send to a server)
+    // For a production environment, you should use server-side logic to handle user registration.
+
+    console.log('User registered successfully:', newUser);
+}
 
   return (
     <div className="instagram-signup">
       <div className="signup-container">
-        <img
-          src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
-          alt="Instagram Logo"
-          className="logo"
-        />
+        <h1>S'inscrire</h1>
         <div className="form-container">
           <form>
             <input
@@ -50,7 +71,7 @@ const Inscription = () => {
           <div className="line"></div>
         </div>
         <div className="login-link">
-          Tu as deja un compte? <a href="/">Se connecter</a>
+          Tu as dja un compte? <a href="/">Se connecter</a>
         </div>
       </div>
     </div>

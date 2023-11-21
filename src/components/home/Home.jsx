@@ -1,14 +1,26 @@
 
 import React, { useState } from 'react';
 import './home.css';
+import database from '../database.json';
+import { useNavigate } from 'react-router-dom';
+
 
 const HomePage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+  const naviguer = useNavigate()
+
   const handleLogin = () => {
-    // Add your login logic here
-    console.log('Logging in with:', { username, password });
+    // Check if the entered username and password match any user in the JSON file
+    const user = database.users.find((user) => user.username === username && user.password === password);
+
+    if (user) {
+      naviguer('/chat')
+    } else {
+      console.log('Invalid username or password');
+      // Add your logic for failed login (e.g., display an error message)
+    }
   };
 
   return (
@@ -42,7 +54,7 @@ const HomePage = () => {
           <div className="line"></div>
         </div>
         <div className="signup-link">
-          Vous n'avez pas de compte? <a href="/inscription">S'inscrir</a>
+          Vous n'avez pas de compte? <a href="/inscription">S'inscrire</a>
         </div>
       </div>
     </div>
