@@ -1,0 +1,61 @@
+/* Login.css */
+.instagram-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .login-container {
+    border: 1px solid #dbdbdb;
+    padding: 20px;
+    max-width: 350px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .logo {
+    width: 175px;
+    margin-bottom: 20px;
+  }
+  
+  .form-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+  }
+  
+  .form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3897f0;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .or-separator {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+  }
+  
+  .line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #dbdbdb;
+  }
+  
+  .or {
+    margin: 0 10px;
+    color: #8e8e8e;
+  }
+  
+  .signup-link {
+    color: #003569;
+    margin-top: 15px;
+  }
+  
